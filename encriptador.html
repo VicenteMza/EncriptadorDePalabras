@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ES">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="logica.js"></script>
+    <title>Encriptador Alura</title>
+</head>
+
+<body>
+    <p><img class="foto1" src="images/logo.png" alt="Logo Alura"></p>
+    <div class="cajaPrincipal">
+        <div class="cajaIzquierda">
+            <textarea class="areaTexto" id="areaEncriptar" placeholder="Ingrese texto aqui"></textarea>
+            <p class="textoAdvertencia"><strong class="signoAlerta">⚠</strong> Solo letras minúsculas y sin acentos
+                <strong class="signoAlerta">⚠</strong>
+            </p>
+            <div>
+                <button class="botones" id="encriptar" onclick="encriptar()">Encriptar</button>
+                <button class="botones" onclick="desencriptador()">Desencriptar</button>
+            </div>
+        </div>
+        <div class="cajaDerecha">
+            <label class="labelEncriptador" id="mesajeEncriptado"><img class="foto2" src="images/Muñecomuneco.png"
+                    alt="imagenBuscador">
+                <p id="parrafo1">Ningún mensaje fue encontrado</p>
+                <p id="parrafo2">Ingrese el texto que desees encriptar o desecriptar</p>
+            </label>
+            <textarea class="areaTextoEncriptado" id="areaTextoEncriptado"></textarea>
+            <button class="botonCopiar" id="btnCopiar" onclick="copiarTexto()">Copiar</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

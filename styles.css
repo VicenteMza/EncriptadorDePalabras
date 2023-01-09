@@ -1,0 +1,126 @@
+body {
+    background-color: #D8DFE8;
+}
+
+p {
+    padding: 20px 50px;
+}
+
+.cajaPrincipal {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cajaIzquierda {
+    padding-left: 150px;
+    grid-template-rows: repeat(1);
+}
+
+.areaTexto {
+    width: 500px;
+    height: 400px;
+    background-color: #D8DFE8;
+    border: none;
+    resize : none;
+    border-radius: 1%;
+}
+
+.areaTexto:hover {
+    border: 1px solid;
+    border-color: rgb(57, 63, 155);
+}
+
+::placeholder {
+    padding: 10px, 10px;
+    color: #000000;
+    font-size: 20px;
+    font-style: Verdana;
+    line-height: 100px
+}
+
+.textoAdvertencia {
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.signoAlerta {
+    color: red;
+}
+
+.botones {
+    width: 150px;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 20px;
+    background: #3a5e8a;
+    border-radius: 10px;
+    border: none;
+}
+
+.botones:hover {
+    text-transform: uppercase;
+    font-size: 11px;
+    background: #0A3871;
+    transform: scale(1.05);
+}
+
+.areaTextoEncriptado {
+    width: 290px;
+    height: 420px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    resize : none;
+    display: none;
+}
+
+/*Todo del segundo Div*/
+.cajaDerecha {
+    width: 300px;
+    height: 500px;
+    background-color: white;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.foto2 {
+    width: 250px;
+    padding-top: 20px;
+
+}
+
+.labelEncriptador {
+    width: 300px;
+    height: 500px;
+
+    text-align: center;
+}
+
+#parrafo1 {
+    font-weight: bold;
+    font-style: verdana;
+}
+
+#parrafo2 {
+    font-size: 10px;
+    font-style: italic;
+}
+
+.botonCopiar {
+    width: 150px;
+    margin-block: 30px;
+    color: white;
+    padding: 10px 20px;
+    background: #3a5e8a;
+    border-radius: 10px;
+    border: none;
+    display: none;
+}
+
+.botonCopiar:hover {
+    text-transform: uppercase;
+    font-size: 11px;
+    background: #0A3871;
+    transform: scale(1.05);
+}
