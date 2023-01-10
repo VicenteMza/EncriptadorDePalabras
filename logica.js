@@ -6,72 +6,108 @@ function eliminarDiacriticos(texto) {
         .normalize();
 }
 
-function mostrarBoton() {
-    document.getElementById('btnCopiar').style.display = 'inline-block';
+function mostrarBoton(propiedad) {
+    document.getElementById('btnCopiar').style.display = propiedad;
+    document.getElementById('btnLimpiar').style.display = propiedad;
 }
 
-function dimencionarLabel() {
+function ocultarLabel() {
     document.getElementById('mesajeEncriptado').style.display = 'none';
 
     document.getElementById('areaTextoEncriptado').style.display = 'inline';
-    document.getElementById('areaTextoEncriptado').style.textAlign ="center";
-
-    //let box = document.getElementsById('areaTextoEncriptado');
-
-    //document.getElementById('mesajeEncriptado').style.display = 'none';
-
 }
+
+const encry = document.getElementById("btnEncriptar");
+encry.addEventListener("click", encriptar);
 
 function encriptar() {
+    let textoCifrado;
     let text = document.getElementById("areaEncriptar").value.toLowerCase();
-    text = eliminarDiacriticos(text);
 
-    text = text.replaceAll("e", "enter");
-    text = text.replaceAll("a", "al");
-    text = text.replaceAll("i", "imes");
-    text = text.replaceAll("o", "ober");
-    text = text.replaceAll("u", "ufat");
+    if (text.trim() != "") {
+        text = text.trimStart();
+        text = eliminarDiacriticos(text);
 
-    dimencionarLabel();
+        textoCifrado = text.replace(/e/igm, "enter");
+        textoCifrado = textoCifrado.replace(/o/igm, "ober");
+        textoCifrado = textoCifrado.replace(/i/igm, "imes");
+        textoCifrado = textoCifrado.replace(/a/igm, "ai");
+        textoCifrado = textoCifrado.replace(/u/igm, "ufat");
 
-    document.getElementById('areaTextoEncriptado').value = text;
-    //var objetivo = document.getElementById('areaTextoEncriptado');
-    //objetivo.innerHTML = text;
+        ocultarLabel();
 
-    mostrarBoton();
-
-    
+        document.getElementById('areaTextoEncriptado').value = textoCifrado;
+        mostrarBoton("inline-block");
+    } else {
+        alerteDeVacio();
+    }
 }
 
-function desencriptador() {
+function alerteDeVacio() {
+    alert("Se debe ingresar un texto!");
+    borrarTextArea();
+}
 
+const desEncrip = document.getElementById("btnDesencriptar");
+desEncrip.addEventListener("click", desencriptar);
+
+function desencriptar() {
+    let textoCifrado;
     let texto = document.getElementById("areaEncriptar").value;
-    texto = eliminarDiacriticos(texto);
-    texto = texto.replaceAll("enter", "e");
-    texto = texto.replaceAll("al", "a");
-    texto = texto.replaceAll("imes", "i");
-    texto = texto.replaceAll("ober", "o");
-    texto = texto.replaceAll("ufat", "u");
 
-    dimencionarLabel();
+    if (texto.trim() != "") {
+        textoCifrado = texto.replace(/enter/igm, "e");
+        textoCifrado = textoCifrado.replace(/ober/igm, "o");
+        textoCifrado = textoCifrado.replace(/imes/igm, "i");
+        textoCifrado = textoCifrado.replace(/ai/igm, "a");
+        textoCifrado = textoCifrado.replace(/ufat/igm, "u");
+        ocultarLabel();
 
-    document.getElementById('areaTextoEncriptado').value = texto;
-    //var objetivo = document.getElementById('areaTextoEncriptado');
-    //objetivo.innerHTML = texto;
+        document.getElementById('areaTextoEncriptado').value = textoCifrado;
 
-    mostrarBoton();
-
-    //alert(texto);
+        mostrarBoton("inline-block");
+    } else {
+        alerteDeVacio();
+    }
 }
 
-function copiarTexto(){
+const copia = document.getElementById("btnCopiar");
+copia.addEventListener("click", copiarTexto);
+
+function copiarTexto() {
     let texto;
 
     texto = document.getElementById('areaTextoEncriptado').value;
 
     document.getElementById('areaEncriptar').value = texto;
 
-    alert("Se copio "+"'" + texto+"'");
-    //texto = document.getElementById('areaTextoEncriptado');
-    //texto.innerHTML = text;
+    copiarPortapales(texto);
 }
+
+function copiarPortapales(x) {
+    var copyText = document.getElementById("areaTextoEncriptado");
+    copyText.select();
+    document.execCommand("copy");
+
+    alert("Se copio " + "'" + x + "'");
+}
+
+const limpia = document.getElementById("btnLimpiar");
+limpia.addEventListener("click", limpiarTextArea);
+
+function limpiarTextArea() {
+    document.getElementById('areaTextoEncriptado').style.display = 'none';
+    document.getElementById('mesajeEncriptado').style.display = "inline";
+    document.getElementById('areaEncriptar').value = "";
+    mostrarBoton("none");
+
+}
+
+function borrarTextArea() {
+    document.getElementById('areaEncriptar').value = "";
+}
+
+window.addEventListener('load', function () {
+    borrarTextArea();
+    console.log("Se limpo los texArea!");
+});

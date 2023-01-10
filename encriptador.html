@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
-    <script src="logica.js"></script>
+    
     <title>Encriptador Alura</title>
 </head>
 
@@ -16,12 +16,13 @@
     <div class="cajaPrincipal">
         <div class="cajaIzquierda">
             <textarea class="areaTexto" id="areaEncriptar" placeholder="Ingrese texto aqui"></textarea>
-            <p class="textoAdvertencia"><strong class="signoAlerta">⚠</strong> Solo letras minúsculas y sin acentos
+            <p class="textoAdvertencia"><strong class="signoAlerta">⚠</strong>No se tendrá en cuenta acentos, todas la
+                palabras se tomaran como minusculas
                 <strong class="signoAlerta">⚠</strong>
             </p>
             <div>
-                <button class="botones" id="encriptar" onclick="encriptar()">Encriptar</button>
-                <button class="botones" onclick="desencriptador()">Desencriptar</button>
+                <button class="botones" id="btnEncriptar">Encriptar</button>
+                <button class="botones" id="btnDesencriptar">Desencriptar</button>
             </div>
         </div>
         <div class="cajaDerecha">
@@ -31,10 +32,13 @@
                 <p id="parrafo2">Ingrese el texto que desees encriptar o desecriptar</p>
             </label>
             <textarea class="areaTextoEncriptado" id="areaTextoEncriptado"></textarea>
-            <button class="botonCopiar" id="btnCopiar" onclick="copiarTexto()">Copiar</button>
+            <div class="divCopiar">
+                <button class="botonCopiar" id="btnCopiar">Copiar</button>
+                <button class="botonCopiar" id="btnLimpiar">Limpiar</button>
+            </div>
         </div>
     </div>
 
+    <script src="logica.js"></script>
 </body>
-
 </html>
