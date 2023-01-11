@@ -9,6 +9,7 @@ body {
 .cajaPrincipal {
     display: flex;
     justify-content: space-evenly;
+    
 }
 
 .cajaIzquierda {
@@ -53,7 +54,7 @@ body {
     width: 150px;
     color: white;
     padding: 10px 20px;
-    margin: 0 20px;
+    margin: 20px 20px;
     background: #3a5e8a;
     border-radius: 10px;
     border: none;
@@ -131,4 +132,22 @@ body {
     font-size: 11px;
     background: #0A3871;
     transform: scale(1.05);
+}
+
+@media (max-width: 600px){
+    .cajaPrincipal{
+        flex-direction: column;
+    }
+    .cajaDerecha{
+        width: 500px;
+        height: 450px;
+    }
+
+    #parrafo1 {
+        padding: 10px;
+    }
+    
+    #parrafo2 {
+        padding: 10px;
+    }
 }
